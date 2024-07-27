@@ -1,0 +1,44 @@
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full screen height */
+    background-color: #ffffff;
+}
+
+.loader-bar {
+    position: relative;
+    width: 300px;
+    height: 20px;
+    background-color: #ffe6e6;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.loader-fill {
+    width: 100%;
+    height: 100%;
+    background-color: #8d5e3d; /* Wood color */
+    animation: fill 0.5s linear forwards;
+    display: flex;
+    justify-content: flex-end; /* Aligns icon to the end */
+    align-items: center;
+    position: relative;
+}
+
+.loader-icon {
+    font-size: 30px; /* Increase icon size */
+    color: rgb(108, 70, 0);
+    position: absolute; /* Absolute positioning */
+    right: -15px; /* Move icon outside of the bar's boundary */
+    margin-right: 0; /* No margin, fully extend icon outside the bar */
+}
+
+@keyframes fill {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
