@@ -3,9 +3,10 @@ import Cards from '../../components/Cards/Cards'
 import PDFCard from '../../components/Cards/PDFCard'
 
 function Reports() {
-    const url="client\public\Blue White Simple Class Report Card.pdf"
+    const url='/Blue White Simple Class Report Card.pdf'
     return (
-        <PDFCard pdfUrl={url}/>
+        // <PDFCard pdfUrl={url}/>
+        <Cards/>
     )
 }
 
