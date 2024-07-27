@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button, Box } from '@mui/material';
 import './Home.css'; // Import the CSS file for styling
-
 export function Home() {
     const navigate = useNavigate();
 
@@ -10,12 +10,43 @@ export function Home() {
     };
 
     return (
-        <div className="home-page">
-            <h1>HOME PAGE</h1>
-            <button onClick={() => handleNavigate('/loc')} className="navigate-button">Go to POC</button>
-            <button onClick={() => handleNavigate('/donar')} className="navigate-button">Go to Donor</button>
-        </div>
+        <Box
+            className="home-page"
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            height="50vh"
+        >
+            
+            <Button
+                variant="contained"
+                size="large"
+                color="primary"
+                onClick={() => handleNavigate('/loc')}
+                sx={{ 
+                    mb: 2,
+                    padding: '12px 24px',
+                    fontSize: '1.25rem'
+                }}
+            >
+                Become a POC
+            </Button>
+            <Button
+                variant="contained"
+                size="large"
+                color="secondary"
+                onClick={() => handleNavigate('/donar')}
+                sx={{ 
+                    padding: '12px 24px',
+                    fontSize: '1.25rem'
+                }}
+            >
+                Become a Donor
+            </Button>
+        </Box>
     );
+
 }
 
 export default Home;
