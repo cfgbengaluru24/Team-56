@@ -8,7 +8,7 @@ import UserProfile from './Routes/UserProfile/UserProfile';
 import Poc from './Routes/Poc/Poc'; // Import Poc component
 import Donar from './Routes/Donar/Donar'; // Import Donar component
 import PocDashboard from './Routes/PocDashboard/PocDashboard';
-
+import Reports from './Routes/Reports/Reports';
 function App() {
   const router = createBrowserRouter([
     {
@@ -34,6 +34,10 @@ function App() {
     {
       path: "/PocDashboard",
       element: <Layout><PocDashboard /></Layout>,
+    },
+    {
+      path: "/Reports",
+      element: <Layout><Reports /></Layout>,
     },
   ]);
 
