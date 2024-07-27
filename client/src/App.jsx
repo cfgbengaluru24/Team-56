@@ -12,7 +12,7 @@ import PocDashboard from './Routes/PocDashboard/PocDashboard';
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/",  
       element: <Layout><Home /></Layout>,
     },
     {
