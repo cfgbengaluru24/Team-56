@@ -11,7 +11,7 @@ import Donar from './Routes/Donar/Donar'; // Import Donar component
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/",  
       element: <Layout><Home /></Layout>,
     },
     {
