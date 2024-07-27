@@ -28,7 +28,7 @@ const Login = ({ setshowLogin, switchToSignUp }) => {
       toast.success('Logged in successfully!');
       setTimeout(() => {
         setshowLogin(false);
-        navigate('/PocDashboard');
+        navigate('/Home');
       }, 2000); // Delay navigation to allow toast to be visible
     } catch (error) {
       console.error(error);
