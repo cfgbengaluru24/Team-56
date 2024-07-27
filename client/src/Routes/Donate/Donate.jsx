@@ -28,11 +28,11 @@ const Donate = () => {
   };
 
   const handleAddDonation = () => {
-    setDonations([...donations, { name: '', quantity: '', gender: '' }]);
+    setDonations([...donations, { name: '', quantity: '', gender: '' ,status:'pending'}]);
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); 
 
     if (!userEmail) {
       alert('No user email found.');
