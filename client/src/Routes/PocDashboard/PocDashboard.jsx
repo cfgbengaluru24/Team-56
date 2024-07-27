@@ -1,4 +1,3 @@
-// src/components/Uploader.js
 import React, { useCallback, useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FaCamera } from 'react-icons/fa';
@@ -68,22 +67,12 @@ const PocDashboard = () => {
         className="flex items-center justify-center w-full h-full"
       >
         <input {...getInputProps()} />
-        <Box
-          className="home-page"
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          height="50vh"
-          width="200vh"
-        >
           <button
             onClick={open}
-            className="flex items-center justify-center bg-gray-600 text-white rounded-full p-8 shadow-lg hover:bg-gray-700 transition duration-300"
+            className="flex items-center justify-center bg-blue-600 text-white rounded-full p-8 shadow-lg hover:bg-blue-700 transition duration-300"
           >
             <FaCamera className="text-4xl" />
           </button>
-        </Box>
       </div>
       {uploadedImage && (
         <div className="mt-6 text-center">
