@@ -89,7 +89,7 @@ const SignUp = ({ setshowLogin, switchToLogin }) => {
               phNO: phNO // Store phone number in Firestore
             });
 
-            navigate('/home');
+            navigate('/PocDashboard');
           };
         }
       }, 3000);
