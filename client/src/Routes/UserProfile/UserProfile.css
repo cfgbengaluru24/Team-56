@@ -1,0 +1,307 @@
+.user-profile {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 30px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.user-profile h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  position: relative;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-picture img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.edit-icon {
+  position: absolute;
+  top: 65%;
+  right: 38%;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  color: #8e5c36;
+  font-size: 30px;
+}
+
+.user-info {
+  margin-bottom: 30px;
+}
+
+.user-info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.user-info-item label {
+  font-weight: bold;
+  padding-left: 60px;
+}
+
+.user-info-item span {
+  padding-right: 60px;
+}
+
+.user-profile h3 {
+  margin-top: 40px;
+}
+
+.user-profile hr {
+  margin-top: 40px;
+}
+
+.properties {
+  margin-top: 20px;
+}
+
+.property-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.property-buttons {
+  display: flex;
+  gap: 15px; 
+}
+
+.property-item button {
+  background-color: #945215a7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 15px;
+  cursor: pointer;
+}
+
+.property-item button:hover {
+  background-color: #9A65338C;
+}
+
+.footer-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.logout-button, .edit-profile-button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid;
+}
+
+.logout-button {
+  border-color: rgba(155, 11, 11, 0.721);
+  color: rgba(174, 17, 17, 0.66);
+  background-color: white;
+}
+
+.logout-button:hover {
+  background-color: rgb(191, 69, 69);
+  color: white;
+}
+
+.edit-profile-button {
+  border-color:  #9A6533; 
+  color: #9A6533 ;
+  background-color: white;
+}
+
+.edit-profile-button:hover {
+  background-color:  #9A6533;
+  color: white;
+}
+
+/* Custom styles for Delete Account Confirmation Popup */
+.login-popup {
+  position: fixed;
+  z-index: 9999; /* Ensure it's above other content */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-popup-container {
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.login-popup-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.login-popup-title img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.login-popup p {
+  margin-bottom: 20px;
+}
+
+.login-popup-condition {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.login-popup-condition button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #9A6533;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-popup-condition button:hover {
+  background-color: #774c2b;
+}
+
+.login-popup-condition button:first-child {
+  background-color: #cc4235;
+}
+
+.login-popup-condition button:first-child:hover {
+  background-color: #a53127;
+}
+
+
+
+
+.login-popup2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+
+.login-popup-container2 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+
+.login-popup-title2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.login-popup-title2 h2 {
+  margin: 0;
+  color: #333;
+}
+
+.login-popup-title2 img {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+/* Style for the popup condition */
+.login-popup-condition2 label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.login-popup-condition2 input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-popup-condition2 button {
+  background-color: #d4a342;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 5px;
+  width: calc(50% - 10px);
+}
+
+.login-popup-condition2 button:hover {
+  background-color: #b88a30;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 480px) {
+  .login-popup-container2 {
+    padding: 10px;
+    width: 90%;
+  }
+
+  .login-popup-condition2 button {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

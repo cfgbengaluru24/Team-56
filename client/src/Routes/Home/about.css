@@ -1,0 +1,40 @@
+.our-story-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  border: 2px solid #333; /* Add border to create the box */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  background-color: #f9f9f9; /* Optional: Add background color */
+}
+
+.our-story-title {
+  font-size: 2.5em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.our-story-text {
+  font-size: 1.2em;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+@media (max-width: 600px) {
+  .our-story-container {
+    padding: 10px;
+  }
+
+  .our-story-title {
+    font-size: 2em;
+  }
+
+  .our-story-text {
+    font-size: 1em;
+  }
+}
