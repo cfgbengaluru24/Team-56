@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Donar.css'; // Assuming you want to style this page
-
+import SlideBtn from './SlideBtn';
+import Panel from './Panel';
+import UserProfile from '../UserProfile/UserProfile';
+// import Profile from './Profile';
 const Donar = () => {
+  const [isPanelOpen, setPanelOpen]= useState(false);
+  const openPanel=()=>setPanelOpen(true);
+  const closePanel=()=>setPanelOpen(false);
   return (
     <div className="donar-page">
-      <h1>This is the Donar Page</h1>
-      <p>Welcome to the donor page!</p>
+      <SlideBtn onClick={openPanel} />
+      <Panel  isOpen={isPanelOpen} onClose={closePanel} />
+      <UserProfile user={null}/>
     </div>
   );
 };

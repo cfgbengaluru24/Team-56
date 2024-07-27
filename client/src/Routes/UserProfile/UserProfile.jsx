@@ -255,6 +255,14 @@ const UserProfile = () => {
           <label>Phone:</label>
           <span>{userData.phNO}</span>
         </div>
+        <div className="user-info-item">
+          <label>Address:</label>
+          <span>{userData.address}</span>
+        </div>
+        <div className="user-info-item">
+          <label>Donating Since:</label>
+          <span>{userData.phNO}</span>
+        </div>
         <hr />
       </div>
       <h3>Your Properties</h3>
