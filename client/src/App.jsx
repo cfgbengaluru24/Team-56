@@ -7,6 +7,7 @@ import Layout from './Layout'; // Import the Layout component
 import UserProfile from './Routes/UserProfile/UserProfile';
 import Poc from './Routes/Poc/Poc'; // Import Poc component
 import Donar from './Routes/Donar/Donar'; // Import Donar component
+import PocDashboard from './Routes/PocDashboard/PocDashboard';
 
 function App() {
   const router = createBrowserRouter([
@@ -29,6 +30,10 @@ function App() {
     {
       path: "/donar",
       element: <Layout><Donar /></Layout>,
+    },
+    {
+      path: "/PocDashboard",
+      element: <Layout><PocDashboard /></Layout>,
     },
   ]);
 
