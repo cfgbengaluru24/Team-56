@@ -1,65 +1,58 @@
-import { Button, Card, CardContent, TextField, Typography } from '@mui/material';
-import React, { useState } from 'react'
-import { auth } from '../../fbconfig.js';
-import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
+import React, { useState } from 'react';
+import { getAuth, signInWithPhoneNumber, RecaptchaVerifier } from 'firebase/auth';
+import { app } from '../../fbconfig'; // Adjust path if necessary
 
-const OtpVerification = () => {
-  const [phone, setPhone] = useState('');
+const auth = getAuth(app);
+
+const Loc = () => {
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [otp, setOtp] = useState('');
-  const [confirmationResult, setConfirmationResult] = useState(null);
+  const [verificationId, setVerificationId] = useState('');
+  const [error, setError] = useState('');
 
-  const setupRecaptcha = () => {
+  // Initialize Recaptcha
+  const setRecaptcha = () => {
+    window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+      size: 'invisible',
+      callback: (response) => {
+        // reCAPTCHA solved - will proceed with OTP sending
+      },
+      'expired-callback': () => {
+        // Response expired; ask user to re-submit
+      }
+    }, auth);
+  };
+
+  const handleSendOtp = async () => {
     try {
-      window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
-        size: 'invisible',
-        callback: () => {
-          handleSendOtp();
-        },
-        'expired-callback': () => {
-          // Response expired. Ask user to solve reCAPTCHA again.
-        }
-      }, auth);
+      setRecaptcha();
+      const appVerifier = window.recaptchaVerifier;
+      const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
+      setVerificationId(confirmationResult.verificationId);
     } catch (error) {
-      console.error("Error initializing reCAPTCHA", error);
+      setError(error.message);
     }
   };
 
-  const handleSendOtp = () => {
-    setupRecaptcha();
-    const phoneNumber = `+${phone}`;
-    const appVerifier = window.recaptchaVerifier;
-    console.log(phoneNumber)
-
-    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-      .then((confirmationResult) => {
-        setConfirmationResult(confirmationResult);
-      }).catch((error) => {
-        console.error("Error during signInWithPhoneNumber", error);
-      });
-  };
-
-  const handleVerifyOtp = () => {
-    if (!confirmationResult) return;
-
-    confirmationResult.confirm(otp).then((result) => {
-      // User signed in successfully.
-      const user = result.user;
-      console.log("User signed in: ", user);
-    }).catch((error) => {
-      // User couldn't sign in (bad verification code?)
-      console.error("Error during confirm", error);
-    });
+  const handleVerifyOtp = async () => {
+    try {
+      const credential = PhoneAuthProvider.credential(verificationId, otp);
+      await signInWithCredential(auth, credential);
+      alert('Phone number verified!');
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
     <div>
-      <h3>OTP Verification</h3>
+      <h2>Phone Number Authentication</h2>
       <div id="recaptcha-container"></div>
       <input
         type="text"
-        placeholder="Enter phone number with country code"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
+        placeholder="Enter phone number"
+        value={phoneNumber}
+        onChange={(e) => setPhoneNumber(e.target.value)}
       />
       <button onClick={handleSendOtp}>Send OTP</button>
       <input
@@ -69,8 +62,9 @@ const OtpVerification = () => {
         onChange={(e) => setOtp(e.target.value)}
       />
       <button onClick={handleVerifyOtp}>Verify OTP</button>
+      {error && <p>{error}</p>}
     </div>
   );
 };
 
-export default OtpVerification;
+export default Loc;
