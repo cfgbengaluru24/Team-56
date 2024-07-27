@@ -1,0 +1,133 @@
+.navbar {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+  width: 150px;
+  height: auto;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style-type: none;
+  gap: 30px;
+  color: #49557e;
+  font-size: 18px;
+}
+
+.navbar-menu a,
+.navbar-menu button {
+  text-decoration: none;
+  color: inherit;
+  padding: 8px 12px;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-menu a:hover,
+.navbar-menu a.active,
+.navbar-menu button:hover {
+  background-color: #9a65338c;
+}
+
+.nav-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-bar-right button {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  color: #49557e;
+  padding: 10px 30px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.hamburger {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #49557e;
+}
+
+@media (max-width: 1050px) {
+  .navbar .logo {
+    width: 140px;
+  }
+  .navbar-menu {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar .logo {
+    width: 120px;
+  }
+  .navbar-menu {
+    gap: 15px;
+    font-size: 16px;
+  }
+  .nav-bar-right button {
+    padding: 8px 25px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 750px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #ffffff;
+    width: 100%;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding: 10px 20px;
+  }
+
+  .navbar-menu.active {
+    display: flex;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-menu a,
+  .navbar-menu button {
+    margin: 10px 0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-align: left; /* Ensure left alignment */
+  }
+
+  .nav-bar-right {
+    position: relative;
+  }
+
+  .nav-bar-right button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .add-listing-btn {
+    text-align: left; /* Ensure left alignment */
+  }
+}
