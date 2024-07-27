@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './Donar.css';
+import './Donate.css';
 import { db, collection, addDoc } from '../../fbconfig'; // Import Firebase functions
 import { getAuth } from 'firebase/auth';
 
-const Donar = () => {
+const Donate = () => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [mobile, setMobile] = useState('');
@@ -124,4 +124,4 @@ const Donar = () => {
   );
 };
 
-export default Donar;
+export default Donate;
