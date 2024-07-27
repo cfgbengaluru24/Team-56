@@ -23,12 +23,12 @@ export function Home() {
         if (userEmail&&data=='poc') {
             navigate("/PocDashboard");
         } 
-        else if(userEmail&&data=='donar'){
-            navigate("/donar")
+        else if(userEmail&&data=='donor'){
+            navigate("/donor")
         }
         
         else {
-            navigate(path); // Redirect to the same path if userEmail is not defined
+            navigate(`${path}?data=${data}`); // Redirect to the same path if userEmail is not defined
         }
     };
 
@@ -60,7 +60,7 @@ export function Home() {
                         variant="contained"
                         size="large"
                         color="secondary"
-                        onClick={() => handleNavigate('/loc','donar')}
+                        onClick={() => handleNavigate('/loc','donor')}
                         sx={{ 
                             padding: '12px 24px',
                             fontSize: '1.25rem'
