@@ -1,39 +1,72 @@
-import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { AuthContext } from './Context/AuthContext';
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthContext } from "./Context/AuthContext";
 
-import { Home } from './Routes/Home/Home';
-import Layout from './Layout'; // Import the Layout component
-import UserProfile from './Routes/UserProfile/UserProfile';
-import Poc from './Routes/Poc/Poc'; // Import Poc component
-import Donar from './Routes/Donar/Donar'; // Import Donar component
-import PocDashboard from './Routes/PocDashboard/PocDashboard';
+import { Home } from "./Routes/Home/Home";
+import Layout from "./Layout"; // Import the Layout component
+import UserProfile from "./Routes/UserProfile/UserProfile";
+import Poc from "./Routes/Poc/Poc"; // Import Poc component
+import Donar from "./Routes/Donar/Donar"; // Import Donar component
+import PocDashboard from "./Routes/PocDashboard/PocDashboard";
+import DonarDashboard from "./Routes/Donar/DonarDashboard";
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",  
-      element: <Layout><Home /></Layout>,
+      path: "/",
+      element: (
+        <Layout>
+          <Home />
+        </Layout>
+      ),
     },
     {
       path: "/home",
-      element: <Layout><Home /></Layout>,
+      element: (
+        <Layout>
+          <Home />
+        </Layout>
+      ),
     },
     {
       path: "/profile/:id",
-      element: <Layout><UserProfile /></Layout>,
+      element: (
+        <Layout>
+          <UserProfile />
+        </Layout>
+      ),
     },
     {
       path: "/loc",
-      element: <Layout><Poc /></Layout>,
+      element: (
+        <Layout>
+          <Poc />
+        </Layout>
+      ),
     },
     {
       path: "/donar",
-      element: <Layout><Donar /></Layout>,
+      element: (
+        <Layout>
+          <Donar />
+        </Layout>
+      ),
     },
     {
       path: "/PocDashboard",
-      element: <Layout><PocDashboard /></Layout>,
+      element: (
+        <Layout>
+          <PocDashboard />
+        </Layout>
+      ),
+    },
+    {
+      path: "/donar/dashboard",
+      element: (
+        <Layout>
+          <DonarDashboard />
+        </Layout>
+      ),
     },
   ]);
 
