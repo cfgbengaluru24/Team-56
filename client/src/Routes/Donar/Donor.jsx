@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import './Donar.css'; // Assuming you want to style this page
 import SlideBtn from './SlideBtn';
 import Panel from './Panel';
 import UserProfile from '../UserProfile/UserProfile';
 // import Profile from './Profile';
-const Donar = () => {
+const Donor = () => {
   const [isPanelOpen, setPanelOpen]= useState(false);
   const openPanel=()=>setPanelOpen(true);
   const closePanel=()=>setPanelOpen(false);
@@ -17,4 +16,4 @@ const Donar = () => {
   );
 };
 
-export default Donar;
+export default Donor;

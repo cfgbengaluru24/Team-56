@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { createAvatar } from '@dicebear/avatars';
 import * as initials from '@dicebear/avatars-initials-sprites';
 import { v4 as uuidv4 } from 'uuid';
+import { useLocation } from 'react-router-dom';
 
 const SignUp = ({ setshowLogin, switchToLogin }) => {
   const [name, setName] = useState('');
@@ -22,6 +23,9 @@ const SignUp = ({ setshowLogin, switchToLogin }) => {
   const [waitingForVerification, setWaitingForVerification] = useState(false);
   const [createdUser, setCreatedUser] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const data = queryParams.get('data');
 
   const colors = ['#ffcc00', '#00aeff', '#ff5733', '#4caf50'];
 
@@ -84,6 +88,7 @@ const SignUp = ({ setshowLogin, switchToLogin }) => {
             await addDoc(collection(db, 'users'), {
               _id: uuidv4(),
               email: user.email,
+              type:data,
               displayName: user.displayName,
               photoURL: imageUrl,
               phNO: phNO // Store phone number in Firestore

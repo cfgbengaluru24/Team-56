@@ -1,0 +1,24 @@
+.served-container {
+  padding: 2rem;
+}
+
+.served-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.served-table th, .served-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.served-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.served-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}

@@ -1,0 +1,60 @@
+.donar-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+  }
+  
+  .donar-page h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border: 2px solid #333; /* Outline around the form */
+    border-radius: 10px; /* Rounded corners for the outline */
+    background-color: #fff; /* White background inside the form */
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex: 1; /* Ensure input fields expand to fit available space */
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .donation-entry {
+    display: flex;
+    gap: 10px; /* Space between donation fields */
+    flex-wrap: wrap; /* Allow fields to wrap to the next line if necessary */
+  }
+  
+  .donation-entry > input {
+    flex: 1;
+    min-width: 100px; /* Minimum width to prevent shrinking too small */
+  }
+  
