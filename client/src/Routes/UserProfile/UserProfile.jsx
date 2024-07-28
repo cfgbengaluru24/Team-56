@@ -57,6 +57,7 @@ const UserProfile = () => {
             const userDoc = querySnapshot.docs[0];
             const userData = userDoc.data();
             setUserData(userData);
+            console.log(userData)
             setProfilePicture(userData.photoURL || 'https://via.placeholder.com/150');
           }
         } catch (error) {

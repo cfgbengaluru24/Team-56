@@ -15,6 +15,7 @@ const Navbar = ({ setshowLogin }) => {
   const navigate = useNavigate();
   const [menu, setMenu] = useState("home");
   const [userId, setUserId] = useState(null);
+  const [userType, setUserType] = useState(null); // New state to store user type
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -27,6 +28,8 @@ const Navbar = ({ setshowLogin }) => {
             const userDoc = querySnapshot.docs[0];
             const userData = userDoc.data();
             setUserId(userData._id); // use `_id` to get the user ID from the data
+            setUserType(userData.type); // Set the user type
+            console.log('User type:', userData.type); // log the type of the user document
           }
         } catch (error) {
           console.error('Error fetching user ID:', error);
@@ -71,7 +74,7 @@ const Navbar = ({ setshowLogin }) => {
 
       <div className={`navbar-menu ${isMobileMenuOpen ? 'active' : ''}`}>
         <Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>Home</Link>
-       
+
         <button
           className="add-listing-btn" style={{fontSize: "16px"}}
           onClick={() => {
@@ -84,6 +87,15 @@ const Navbar = ({ setshowLogin }) => {
         >
           Protected Route
         </button>
+
+        {userType === 'donor' && (
+          <button
+            className="donate-btn" style={{fontSize: "16px"}}
+            onClick={() => navigate("/donate")}
+          >
+            Donate
+          </button>
+        )}
       </div>
 
       <div className="nav-bar-right">

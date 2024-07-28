@@ -49,7 +49,7 @@ function App() {
       path: "/donor",
       element: (
         <Layout>
-          <Donor />
+          <DonorDashboard />
         </Layout>
       ),
     },
