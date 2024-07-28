@@ -24,7 +24,7 @@ const Tracking = () => {
     try {
       // Add to donated collection
       await addDoc(collection(db, 'donated'), {
-        name: item.name,
+        clothType: item.name,
         gender: item.gender,
         email: item.email,
         quantity: item.quantity
