@@ -8,6 +8,8 @@ import ProfileLogo from '../ProfileLogo/ProfileLogo.jsx';
 import { db } from '../../fbconfig';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { LanguageContext } from '../../Context/LanguageContext.jsx';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = ({ setshowLogin }) => {
   const { user, setUser } = useContext(Context);
@@ -16,6 +18,12 @@ const Navbar = ({ setshowLogin }) => {
   const [menu, setMenu] = useState("home");
   const [userId, setUserId] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const {language, setLanguage} = useContext(LanguageContext);
+  const { t, i18n } = useTranslation();
+
+  useEffect(()=>{
+      i18n.changeLanguage(language);
+  },[language])
 
   useEffect(() => {
     if (user && user.email) {
@@ -70,7 +78,7 @@ const Navbar = ({ setshowLogin }) => {
       </Link>
 
       <div className={`navbar-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-        <Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>Home</Link>
+        <Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>{t('home')}</Link>
        
         <button
           className="add-listing-btn" style={{fontSize: "16px"}}
@@ -82,7 +90,7 @@ const Navbar = ({ setshowLogin }) => {
             }
           }}
         >
-          Protected Route
+          {t('protected_route')}
         </button>
       </div>
 
@@ -90,7 +98,7 @@ const Navbar = ({ setshowLogin }) => {
         {user ? (
           <button onClick={handleProfileClick}><ProfileLogo /></button>
         ) : (
-          <button onClick={() => setshowLogin(true)}>Login</button>
+          <button onClick={() => setshowLogin(true)}>{t('login')}</button>
         )}
       </div>
 

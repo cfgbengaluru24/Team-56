@@ -1,13 +1,15 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AuthContext } from './Context/AuthContext';
+import { LanguageProvider } from './Context/LanguageContext'; // Import the LanguageProvider
 
 import { Home } from './Routes/Home/Home';
-import Layout from './Layout'; // Import the Layout component
+import Layout from './Layout'; 
 import UserProfile from './Routes/UserProfile/UserProfile';
-import Poc from './Routes/Poc/Poc'; // Import Poc component
-import Donar from './Routes/Donar/Donar'; // Import Donar component
+import Poc from './Routes/Poc/Poc';
+import Donar from './Routes/Donar/Donar';
 import PocDashboard from './Routes/PocDashboard/PocDashboard';
+import './i18n'; // Ensure i18n is imported and initialized
 
 function App() {
   const router = createBrowserRouter([
@@ -39,7 +41,9 @@ function App() {
 
   return (
     <AuthContext>
-      <RouterProvider router={router}></RouterProvider>
+      <LanguageProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </LanguageProvider>
     </AuthContext>
   );
 }

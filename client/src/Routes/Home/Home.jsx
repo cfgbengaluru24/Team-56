@@ -1,23 +1,31 @@
 // src/Routes/Home/Home.jsx
 
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Box } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import './Home.css';
 import About from './about';
+import { LanguageContext } from '../../Context/LanguageContext';
 
 export function Home() {
     const navigate = useNavigate();
     const { t, i18n } = useTranslation();
+    const {language, setLanguage} = useContext(LanguageContext);
 
     const handleNavigate = (path) => {
         navigate(path);
     };
 
     const changeLanguage = (lng) => {
+        if(language!==lng){
         i18n.changeLanguage(lng);
+        setLanguage(lng)}
     };
+
+    useEffect(()=>{
+        i18n.changeLanguage(language);
+    },[language])
 
     return (
         <>
