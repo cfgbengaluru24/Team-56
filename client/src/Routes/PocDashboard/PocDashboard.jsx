@@ -69,7 +69,8 @@ const PocDashboard = () => {
         <input {...getInputProps()} />
           <button
             onClick={open}
-            className="flex items-center justify-center bg-blue-700 text-white rounded-full p-8 shadow-lg hover:bg-blue-300 transition duration-300"
+            className="flex items-center justify-center text-white rounded-full p-8 shadow-lg hover:bg-80 transition duration-300"
+            style={{backgroundColor: '#9a65338c'}}
           >
             <FaCamera className="text-4xl" />
           </button>

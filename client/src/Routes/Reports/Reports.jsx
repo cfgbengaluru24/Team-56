@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import Cards from '../../components/Cards/Cards'
-import PDFCard from '../../components/Cards/PDFCard'
 import Modal from '../../components/Modal/Modal';
 function Reports() {
     // const url = '/Blue White Simple Class Report Card.pdf'
