@@ -4,6 +4,9 @@ import { FaCamera } from "react-icons/fa";
 import { HiArrowNarrowDown } from "react-icons/hi";
 import { Button, Box } from "@mui/material";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const PocDashboard = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [processedImage, setProcessedImage] = useState(null);
@@ -11,9 +14,18 @@ const PocDashboard = () => {
   // Callback function to handle file drop
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
+    if (!file) {
+      toast.error('No file selected');
+      return;
+    }
+    
     const reader = new FileReader();
     reader.onload = () => {
       setUploadedImage(reader.result);
+      toast.success('File uploaded successfully');
+    };
+    reader.onerror = () => {
+      toast.error('Error reading file');
     };
     reader.readAsDataURL(file);
   }, []);
@@ -43,6 +55,9 @@ const PocDashboard = () => {
 
       setProcessedImage(canvas.toDataURL());
     };
+    img.onerror = () => {
+      toast.error('Error processing image');
+    };
   };
 
   const sendImageToServer = async (image) => {
@@ -71,6 +86,7 @@ const PocDashboard = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <ToastContainer />
       <div
         {...getRootProps()}
         className="flex items-center justify-center w-full h-full"
@@ -82,6 +98,13 @@ const PocDashboard = () => {
         >
           <FaCamera className="text-4xl" />
         </button>
+          <button
+            onClick={open}
+            className="flex items-center justify-center text-white rounded-full p-8 shadow-lg hover:bg-80 transition duration-300"
+            style={{ backgroundColor: '#9a65338c' }}
+          >
+            <FaCamera className="text-4xl" />
+          </button>
       </div>
       {uploadedImage && (
         <div className="text-center">

@@ -35,7 +35,7 @@ const Served = () => {
         <tbody>
           {servedItems.map((item, index) => (
             <tr key={index}>
-              <td>{item.clothType}</td>
+              <td>{item.name}</td>
               <td>{item.gender}</td>
               <td>{item.email}</td>
               <td>{item.quantity}</td>

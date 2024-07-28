@@ -4,6 +4,8 @@ import Panel from "./Panel";
 import DoubleAreaChart from "../../components/Charts/DoubleAreaChart";
 import DataTable from "../../components/Tables/DataTable";
 import { BsEmojiSmile } from "react-icons/bs";
+import Reports from "./Reports";
+import Tracker from "./Tracker";
 // import Profile from './Profile';
 const DonorDashboard = () => {
   const [isPanelOpen, setPanelOpen] = useState(false);
@@ -119,7 +121,7 @@ const DonorDashboard = () => {
     <div className="">
       <SlideBtn onClick={openPanel} />
       <Panel isOpen={isPanelOpen} onClose={closePanel} />
-      <div className="min-h-screen p-10 flex flex-col items-center gap-4">
+      <div className="min-h-screen p-10 flex flex-col items-center gap-10">
         <div className="w-full flex justify-between">
           <h1 className="text-3xl">Donor Dashboard</h1>
           <div className="flex  items-center gap-4">
@@ -146,7 +148,20 @@ const DonorDashboard = () => {
           </div>
         </div>
         <div className="h-1 w-full bg-g"></div>
-        <DataTable {...transaction} />
+        <div className="w-full grid grid-cols-2 h-fit gap-8">
+          <div className="grid gap-4 shadow-md p-4 rounded-xl bg-white">
+            <h2 className="text-2xl">Transaction History💰</h2>
+            <DataTable {...transaction} />
+          </div>
+          <div className="grid gap-4 shadow-md p-4 rounded-xl bg-white ">
+            <h2 className="text-2xl">Free Clothes Trackers✏️</h2>
+            <Tracker />
+          </div>
+        </div>
+        <div className="flex flex-col">
+          <h1 className="text-3xl">Student Reports (Eduports)</h1>
+          <Reports />
+        </div>
       </div>
     </div>
   );
