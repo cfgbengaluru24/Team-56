@@ -11,7 +11,7 @@ const Donor = () => {
     <div className="donar-page">
       <SlideBtn onClick={openPanel} />
       <Panel  isOpen={isPanelOpen} onClose={closePanel} />
-      <UserProfile user={null}/>
+      <UserProfile/>
     </div>
   );
 };
