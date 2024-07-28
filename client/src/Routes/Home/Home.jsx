@@ -5,7 +5,11 @@ import './Home.css'; // Import the CSS file for styling
 import About from './about'
 import { db } from '../../fbconfig';
 import { getAuth } from 'firebase/auth';
+<<<<<<< HEAD
+import CardSlider from '../../components/CardSlider/CardSlider';
+=======
 import { collection, query, where, getDocs } from 'firebase/firestore';
+>>>>>>> 9ab575887e466bdad5ce758d8bf128c37ee6b898
 export function Home() {
     const navigate = useNavigate();
     const [userEmail, setUserEmail] = useState('');
@@ -34,14 +38,22 @@ export function Home() {
         }
     }, []);
 
+<<<<<<< HEAD
+    const handleNavigate = (path, data) => {
+        if (userEmail && data == 'poc') {
+            navigate("/PocDashboard");
+        }
+        else if (userEmail && data == 'donor') {
+=======
     const handleNavigate = (path,data) => {
         if (userEmail&&data=='poc'&&usertype=='loc') {
             navigate("/PocDashboard");
         } 
         else if(userEmail&&data=='donor'&&usertype=='donor'){
+>>>>>>> 9ab575887e466bdad5ce758d8bf128c37ee6b898
             navigate("/donor")
         }
-        
+
         else {
             navigate(`${path}?data=${data}`); // Redirect to the same path if userEmail is not defined
         }
@@ -49,46 +61,54 @@ export function Home() {
 
 
     return (
-            <>
-                <Box
-                    className="home-page"
-                    display="flex"
-                    flexDirection="column"
-                    alignItems="center"
-                    justifyContent="center"
-                    height="50vh"
-                >
-                    <Button
-                        variant="contained"
-                        size="large"
-                        color="primary"
-                        onClick={() => handleNavigate('/loc','poc')}
-                        sx={{ 
-                            mb: 2,
-                            padding: '12px 24px',
-                            fontSize: '1.25rem'
-                        }}
-                    >
-                        Become a POC
-                    </Button>
-                    <Button
-                        variant="contained"
-                        size="large"
-                        color="secondary"
-                        onClick={() => handleNavigate('/loc','donor')}
-                        sx={{ 
-                            padding: '12px 24px',
-                            fontSize: '1.25rem'
-                        }}
-                    >
-                        Become a Donor
-                    </Button>
-                </Box>
-    
-                <About />
-            </>
-        );
-    
+        <>
+            <div className="relative w-full h-screen mb-4">
+                <div className="relative w-full h-[90vh]">
+                    <img
+                        src="red.jpg"
+                        alt="Background"
+                        className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center">
+                        <div className="text-black text-4xl font-bold text-center mb-20 mt-20">
+                            Let's Intend To Spread Smiles
+                        </div>
+                        <div className="flex gap-4 ">
+                            <Button
+                                variant="contained"
+                                size="large"
+                                color="primary"
+                                onClick={() => handleNavigate('/loc', 'poc')}
+                                sx={{
+                                    fontSize: '1.2rem',
+                                    padding: '12px 24px',
+                                    minWidth: '200px'
+                                }}
+                            >
+                                Become a POC
+                            </Button>
+                            <Button
+                                variant="contained"
+                                size="large"
+                                color="secondary"
+                                onClick={() => handleNavigate('/loc', 'donor')}
+                                sx={{
+                                    fontSize: '1.2rem',
+                                    padding: '12px 24px',
+                                    minWidth: '200px'
+                                }}
+                            >
+                                Become a Donor
+                            </Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <About />
+            <CardSlider/>
+        </>
+    );
+
 
 }
 
