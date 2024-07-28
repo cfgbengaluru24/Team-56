@@ -4,6 +4,7 @@ import Panel from "./Panel";
 import DoubleAreaChart from "../../components/Charts/DoubleAreaChart";
 import DataTable from "../../components/Tables/DataTable";
 import { BsEmojiSmile } from "react-icons/bs";
+import Reports from "../Reports/Reports";
 // import Profile from './Profile';
 const DonorDashboard = () => {
   const [isPanelOpen, setPanelOpen] = useState(false);
@@ -148,7 +149,11 @@ const DonorDashboard = () => {
         <div className="h-1 w-full bg-g"></div>
         <DataTable {...transaction} />
       </div>
+      <div class="flex justify-center items-center min-h-screen">
+        <Reports/>
+      </div>
     </div>
+    
   );
 };
 
