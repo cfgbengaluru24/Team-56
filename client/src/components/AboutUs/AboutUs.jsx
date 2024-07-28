@@ -6,7 +6,13 @@ import aboutus3 from '../../assets/about3.png';
 import { FaHome } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
 
+
 const AboutUs = () => {
+  const {language, setLanguage} = useContext(LanguageContext);
+  const { t, i18n } = useTranslation();
+  useEffect(()=>{
+    i18n.changeLanguage(language);
+},[language])
   return (
     <div className="about-us" id="about">
       <div className="about-us__text">

@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import fbconfig from './fbconfig.js'
 import { initializeApp} from 'firebase/app'
-
+import './i18n';
 const app = initializeApp(fbconfig)
 
 ReactDOM.createRoot(document.getElementById('root')).render(

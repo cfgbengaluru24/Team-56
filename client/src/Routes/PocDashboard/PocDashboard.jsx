@@ -1,6 +1,9 @@
-import React, { useCallback, useState, useEffect } from 'react';
-import { useDropzone } from 'react-dropzone';
-import { FaCamera } from 'react-icons/fa';
+import React, { useCallback, useState, useEffect } from "react";
+import { useDropzone } from "react-dropzone";
+import { FaCamera } from "react-icons/fa";
+import { HiArrowNarrowDown } from "react-icons/hi";
+import { Button, Box } from "@mui/material";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -34,10 +37,10 @@ const PocDashboard = () => {
     const img = new Image();
     img.src = uploadedImage;
     img.onload = () => {
-      const canvas = document.createElement('canvas');
+      const canvas = document.createElement("canvas");
       canvas.width = img.width;
       canvas.height = img.height;
-      const ctx = canvas.getContext('2d');
+      const ctx = canvas.getContext("2d");
       ctx.drawImage(img, 0, 0);
 
       // OpenCV processing
@@ -45,7 +48,7 @@ const PocDashboard = () => {
       const dst = new cv.Mat();
       cv.cvtColor(src, dst, cv.COLOR_RGBA2GRAY, 0);
       cv.threshold(dst, dst, 120, 200, cv.THRESH_BINARY);
-      cv.imshow('outputCanvas', dst);
+      cv.imshow("outputCanvas", dst);
 
       src.delete();
       dst.delete();
@@ -57,10 +60,20 @@ const PocDashboard = () => {
     };
   };
 
-  // Effect to process the image once it is uploaded
+  const sendImageToServer = async (image) => {
+    const response = await fetch("http://localhost:8080/api/upload", {
+      method: "POST",
+      body: JSON.stringify({ image: image }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(response);
+  };
+
   useEffect(() => {
     if (uploadedImage) {
-      processImage();
+      sendImageToServer(uploadedImage);
     }
   }, [uploadedImage]);
 
@@ -79,6 +92,12 @@ const PocDashboard = () => {
         className="flex items-center justify-center w-full h-full"
       >
         <input {...getInputProps()} />
+        <button
+          onClick={open}
+          className="flex items-center justify-center bg-blue-700 text-white rounded-full p-8 shadow-lg hover:bg-blue-300 transition duration-300"
+        >
+          <FaCamera className="text-4xl" />
+        </button>
           <button
             onClick={open}
             className="flex items-center justify-center text-white rounded-full p-8 shadow-lg hover:bg-80 transition duration-300"
@@ -87,6 +106,21 @@ const PocDashboard = () => {
             <FaCamera className="text-4xl" />
           </button>
       </div>
+      {uploadedImage && (
+        <div className="mt-6 text-center">
+          <h2 className="text-xl font-semibold">Original Image</h2>
+          <img
+            src={uploadedImage}
+            alt="Uploaded"
+            className="mt-2 border-2 border-gray-300 rounded-lg"
+          />
+          <h2 className="text-xl font-semibold mt-4">Processed Image</h2>
+          <canvas
+            id="outputCanvas"
+            className="mt-2 border-2 border-gray-300 rounded-lg"
+          ></canvas>
+        </div>
+      )}
     </div>
   );
 };

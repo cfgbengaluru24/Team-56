@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthContext } from "./Context/AuthContext";
+import { LanguageProvider } from './Context/LanguageContext'; // Import the LanguageProvider
 
 import { Home } from "./Routes/Home/Home";
 import Layout from "./Layout"; // Import the Layout component
@@ -88,7 +89,9 @@ function App() {
 
   return (
     <AuthContext>
-      <RouterProvider router={router}></RouterProvider>
+      <LanguageProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </LanguageProvider>
     </AuthContext>
   );
 }
