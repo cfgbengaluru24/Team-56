@@ -6,10 +6,10 @@ import { Home } from "./Routes/Home/Home";
 import Layout from "./Layout"; // Import the Layout component
 import UserProfile from "./Routes/UserProfile/UserProfile";
 import Poc from "./Routes/Poc/Poc"; // Import Poc component
-import Donar from "./Routes/Donar/Donar"; // Import Donar component
 import PocDashboard from "./Routes/PocDashboard/PocDashboard";
-import DonarDashboard from "./Routes/Donar/DonarDashboard";
-
+import Donor from "./Routes/Donar/Donor";
+import Reports from "./Routes/Reports/Reports";
+import Donate from "./Routes/Donate/Donate";
 function App() {
   const router = createBrowserRouter([
     {
@@ -45,10 +45,10 @@ function App() {
       ),
     },
     {
-      path: "/donar",
+      path: "/donor",
       element: (
         <Layout>
-          <Donar />
+          <Donor />
         </Layout>
       ),
     },
@@ -61,10 +61,18 @@ function App() {
       ),
     },
     {
-      path: "/donar/dashboard",
+      path: "/Reports",
       element: (
         <Layout>
-          <DonarDashboard />
+          <Reports />
+        </Layout>
+      ),
+    },
+    {
+      path: "/Donate",
+      element: (
+        <Layout>
+          <Donate />
         </Layout>
       ),
     },
