@@ -1,8 +1,8 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { FaCamera } from 'react-icons/fa';
-import { HiArrowNarrowDown } from 'react-icons/hi';
-import { Button, Box } from '@mui/material';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PocDashboard = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -11,9 +11,18 @@ const PocDashboard = () => {
   // Callback function to handle file drop
   const onDrop = useCallback((acceptedFiles) => {
     const file = acceptedFiles[0];
+    if (!file) {
+      toast.error('No file selected');
+      return;
+    }
+    
     const reader = new FileReader();
     reader.onload = () => {
       setUploadedImage(reader.result);
+      toast.success('File uploaded successfully');
+    };
+    reader.onerror = () => {
+      toast.error('Error reading file');
     };
     reader.readAsDataURL(file);
   }, []);
@@ -43,6 +52,9 @@ const PocDashboard = () => {
 
       setProcessedImage(canvas.toDataURL());
     };
+    img.onerror = () => {
+      toast.error('Error processing image');
+    };
   };
 
   // Effect to process the image once it is uploaded
@@ -60,8 +72,8 @@ const PocDashboard = () => {
   });
 
   return (
-
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <ToastContainer />
       <div
         {...getRootProps()}
         className="flex items-center justify-center w-full h-full"
@@ -70,22 +82,12 @@ const PocDashboard = () => {
           <button
             onClick={open}
             className="flex items-center justify-center text-white rounded-full p-8 shadow-lg hover:bg-80 transition duration-300"
-            style={{backgroundColor: '#9a65338c'}}
+            style={{ backgroundColor: '#9a65338c' }}
           >
             <FaCamera className="text-4xl" />
           </button>
       </div>
-      {uploadedImage && (
-        <div className="mt-6 text-center">
-          <h2 className="text-xl font-semibold">Original Image</h2>
-          <img src={uploadedImage} alt="Uploaded" className="mt-2 border-2 border-gray-300 rounded-lg" />
-          <h2 className="text-xl font-semibold mt-4">Processed Image</h2>
-          <canvas id="outputCanvas" className="mt-2 border-2 border-gray-300 rounded-lg"></canvas>
-        </div>
-      )}
     </div>
-
-
   );
 };
 
