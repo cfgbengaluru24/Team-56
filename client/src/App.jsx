@@ -8,7 +8,7 @@ import UserProfile from "./Routes/UserProfile/UserProfile";
 import Poc from "./Routes/Poc/Poc"; // Import Poc component
 import PocDashboard from "./Routes/PocDashboard/PocDashboard";
 import Donor from "./Routes/Donar/Donor";
-import Reports from "./Routes/Reports/Reports";
+import Reports from "./Routes/Donar/Reports";
 import Donate from "./Routes/Donate/Donate";
 import DonorDashboard from "./Routes/Donar/DonorDashboard";
 function App() {
@@ -62,7 +62,7 @@ function App() {
       ),
     },
     {
-      path: "/Reports",
+      path: "/donor/reports",
       element: (
         <Layout>
           <Reports />
