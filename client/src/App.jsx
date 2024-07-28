@@ -10,6 +10,7 @@ import PocDashboard from "./Routes/PocDashboard/PocDashboard";
 import Donor from "./Routes/Donar/Donor";
 import Reports from "./Routes/Reports/Reports";
 import Donate from "./Routes/Donate/Donate";
+import DonorDashboard from "./Routes/Donar/DonorDashboard";
 function App() {
   const router = createBrowserRouter([
     {
@@ -65,6 +66,14 @@ function App() {
       element: (
         <Layout>
           <Reports />
+        </Layout>
+      ),
+    },
+    {
+      path: "/donor/dashboard",
+      element: (
+        <Layout>
+          <DonorDashboard />
         </Layout>
       ),
     },

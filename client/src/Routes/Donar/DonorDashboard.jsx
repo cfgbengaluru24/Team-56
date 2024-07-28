@@ -5,7 +5,7 @@ import DoubleAreaChart from "../../components/Charts/DoubleAreaChart";
 import DataTable from "../../components/Tables/DataTable";
 import { BsEmojiSmile } from "react-icons/bs";
 // import Profile from './Profile';
-const DonarDashboard = () => {
+const DonorDashboard = () => {
   const [isPanelOpen, setPanelOpen] = useState(false);
   const openPanel = () => setPanelOpen(true);
   const closePanel = () => setPanelOpen(false);
@@ -116,7 +116,7 @@ const DonarDashboard = () => {
     ],
   };
   return (
-    <div className="donar-page">
+    <div className="">
       <SlideBtn onClick={openPanel} />
       <Panel isOpen={isPanelOpen} onClose={closePanel} />
       <div className="min-h-screen p-10 flex flex-col items-center gap-4">
@@ -152,4 +152,4 @@ const DonarDashboard = () => {
   );
 };
 
-export default DonarDashboard;
+export default DonorDashboard;
