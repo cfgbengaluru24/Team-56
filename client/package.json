@@ -26,6 +26,9 @@
     "dotenv": "^16.4.5",
     "firebase": "^10.12.4",
     "otp-input-react": "^0.3.0",
+    "puppeteer": "^22.14.0",
+    "qrcode": "^1.5.3",
+    "qrcode-terminal": "^0.12.0",
     "react": "^18.3.1",
     "react-awesome-reveal": "^4.2.13",
     "react-dom": "^18.3.1",
@@ -43,6 +46,8 @@
     "react-select": "^5.8.0",
     "react-toastify": "^10.0.5",
     "react-webcam": "^7.2.0",
+    "rimraf": "^6.0.1",
+    "rxjs": "^7.8.1",
     "uuid": "^10.0.0",
     "yet-another-react-lightbox": "^3.20.0"
   },
