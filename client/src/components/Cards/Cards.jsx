@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Cards() {
+function Cards({name,date, onClick}) {
   return (
-    <div className="p-1 flex flex-wrap items-center justify-center">
-      <div className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg group">
+    <div className="p-1 flex flex-wrap items-center justify-center " onClick={onClick}>
+      <div className="flex-shrink-0 m-6 relative overflow-hidden bg-grey-500 rounded-lg max-w-xs shadow-lg group">
         <svg
           className="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
           viewBox="0 0 375 283"
@@ -39,16 +39,16 @@ function Cards() {
           ></div>
           <img
             className="relative w-40"
-            src="https://user-images.githubusercontent.com/2805249/64069899-8bdaa180-cc97-11e9-9b19-1a9e1a254c18.png"
+            src="\Blue White Simple Class Report Card_page-0001.jpg"
             alt=""
           />
         </div>
-        <div className="relative text-white px-6 pb-6 mt-6">
+        <div className="relative text-gray-500 px-6 pb-6 mt-6">
           <span className="block opacity-75 -mb-1"></span>
           <div className="flex justify-between">
-            <span className="block font-semibold text-xl">Peace Lily</span>
-            <span className="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
-              $36.00
+            <span className="block font-semibold text-xl">{name}</span>
+            <span className="block bg-white rounded-full text-black-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
+              {date}
             </span>
           </div>
         </div>
