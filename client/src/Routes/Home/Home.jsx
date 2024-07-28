@@ -5,11 +5,11 @@ import './Home.css'; // Import the CSS file for styling
 import About from './about'
 import { db } from '../../fbconfig';
 import { getAuth } from 'firebase/auth';
-<<<<<<< HEAD
+
 import CardSlider from '../../components/CardSlider/CardSlider';
-=======
+
 import { collection, query, where, getDocs } from 'firebase/firestore';
->>>>>>> 9ab575887e466bdad5ce758d8bf128c37ee6b898
+
 export function Home() {
     const navigate = useNavigate();
     const [userEmail, setUserEmail] = useState('');
@@ -38,19 +38,11 @@ export function Home() {
         }
     }, []);
 
-<<<<<<< HEAD
-    const handleNavigate = (path, data) => {
-        if (userEmail && data == 'poc') {
-            navigate("/PocDashboard");
-        }
-        else if (userEmail && data == 'donor') {
-=======
     const handleNavigate = (path,data) => {
         if (userEmail&&data=='poc'&&usertype=='loc') {
             navigate("/PocDashboard");
         } 
         else if(userEmail&&data=='donor'&&usertype=='donor'){
->>>>>>> 9ab575887e466bdad5ce758d8bf128c37ee6b898
             navigate("/donor")
         }
 

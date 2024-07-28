@@ -24,7 +24,7 @@ const Tracking = () => {
     try {
       // Add to donated collection
       await addDoc(collection(db, 'donated'), {
-        name: item.clothType,
+        name: item.name,
         gender: item.gender,
         email: item.email,
         quantity: item.quantity
@@ -56,7 +56,7 @@ const Tracking = () => {
         <tbody>
           {trackingItems.map((item, index) => (
             <tr key={index}>
-              <td>{item.clothType}</td>
+              <td>{item.name}</td>
               <td>{item.gender}</td>
               <td>{item.email}</td>
               <td>{item.quantity}</td>
