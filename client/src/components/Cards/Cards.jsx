@@ -1,8 +1,11 @@
-import React from 'react';
+import React from "react";
 
-function Cards({name,date, onClick}) {
+function Cards({ name, date, onClick }) {
   return (
-    <div className="p-1 flex flex-wrap items-center justify-center " onClick={onClick}>
+    <div
+      className="p-1 flex flex-wrap items-center justify-center hover:cursor-pointer"
+      onClick={onClick}
+    >
       <div className="flex-shrink-0 m-6 relative overflow-hidden bg-grey-500 rounded-lg max-w-xs shadow-lg group">
         <svg
           className="absolute bottom-0 left-0 mb-8 scale-150 group-hover:scale-[1.65] transition-transform"
@@ -32,8 +35,8 @@ function Cards({name,date, onClick}) {
           <div
             className="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
             style={{
-              background: 'radial-gradient(black, transparent 60%)',
-              transform: 'rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)',
+              background: "radial-gradient(black, transparent 60%)",
+              transform: "rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1)",
               opacity: 0.2,
             }}
           ></div>
