@@ -1,6 +1,6 @@
-import React, {useState} from 'react'
-import Cards from '../../components/Cards/Cards'
-import Modal from '../../components/Modal/Modal';
+import React, { useState } from "react";
+import Cards from "../../components/Cards/Cards";
+import Modal from "../../components/Modal/Modal";
 function Reports() {
   // const url = '/Blue White Simple Class Report Card.pdf'
   const [selectedPdfUrl, setSelectedPdfUrl] = useState(null);
