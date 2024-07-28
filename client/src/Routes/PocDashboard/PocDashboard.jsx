@@ -84,18 +84,13 @@ const PocDashboard = () => {
         </button>
       </div>
       {uploadedImage && (
-        <div className="mt-6 text-center">
-          <h2 className="text-xl font-semibold">Original Image</h2>
+        <div className="text-center">
+          <h2 className="text-xl font-semibold w-4/5 h-fit">Original Image</h2>
           <img
             src={uploadedImage}
             alt="Uploaded"
-            className="mt-2 border-2 border-gray-300 rounded-lg"
+            className="mt-2 border-2 border-gray-300 rounded-lg w-72 h-96"
           />
-          <h2 className="text-xl font-semibold mt-4">Processed Image</h2>
-          <canvas
-            id="outputCanvas"
-            className="mt-2 border-2 border-gray-300 rounded-lg"
-          ></canvas>
         </div>
       )}
     </div>
